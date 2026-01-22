@@ -10,13 +10,14 @@ client = discord.Client(intents=intents)
 
 @client.event
 async def on_ready():
-    print(f"Bot conectado como {client.user}")
+    print(f"🤖 Bot conectado como {client.user}")
 
 @client.event
 async def on_message(message):
     if message.author.bot:
         return
+
     if message.content == "!ping":
-        message.channel.send("pong")
+        await message.channel.send("pong")
 
 client.run(TOKEN)
